@@ -1,0 +1,8 @@
+numpy>=1.20.0
+scipy>=1.7.0
+matplotlib>=3.4.0
+PyOpenGL>=3.1.5
+PyOpenGL-accelerate>=3.1.5
+pyvista>=0.32.0
+vtk>=9.0.0
+pybullet>=3.2.0
