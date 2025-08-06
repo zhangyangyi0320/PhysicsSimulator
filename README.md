@@ -29,6 +29,7 @@ PhysicsSimulator/
 │   └── ui/               # 用户界面
 ├── build/                # 构建目录
 ├── tests/                # 测试用例
+├── examples/             # 示例程序
 └── docs/                 # 文档
 ```
 
@@ -44,8 +45,78 @@ PhysicsSimulator/
 - Python 3.7+
 - PyOpenGL
 - NumPy
-- PyQt5(GUI界面)
+- PyQt5/PySide2 (GUI界面)
+
+## 安装与使用
+
+### 依赖项
+- C++17兼容的编译器 (GCC 7+, Clang 5+, MSVC 2017+)
+- Python 3.7+
+- CMake 3.10+
+- Git
+
+### 构建步骤
+
+```bash
+# 克隆仓库
+git clone https://github.com/yourusername/PhysicsSimulator.git
+cd PhysicsSimulator
+
+# 构建C++库
+mkdir -p build && cd build
+cmake ..
+make
+
+# 安装Python依赖
+cd ../python
+pip install -r requirements.txt
+```
+
+### 运行示例
+
+```bash
+# 从项目根目录
+python examples/basic_simulation.py
+```
+
+## 使用示例
+
+```python
+from physics_simulator import Simulator, RigidBody, Vector3
+
+# 创建模拟器实例
+sim = Simulator()
+
+# 添加一个刚体
+box = RigidBody.create_box(1.0, 1.0, 1.0)
+box.position = Vector3(0, 5, 0)
+sim.add_body(box)
+
+# 添加地面
+ground = RigidBody.create_plane()
+ground.is_static = True
+sim.add_body(ground)
+
+# 运行模拟
+sim.run_with_visualization()
+```
+
+## 贡献指南
+
+欢迎贡献代码、报告问题或提出新功能建议。请遵循以下步骤：
+
+1. Fork本仓库
+2. 创建您的特性分支 (`git checkout -b feature/amazing-feature`)
+3. 提交您的更改 (`git commit -m 'Add some amazing feature'`)
+4. 推送到分支 (`git push origin feature/amazing-feature`)
+5. 打开Pull Request
 
 ## 许可证
 
 本项目采用MIT许可证 - 详情请参见 [LICENSE](LICENSE) 文件
+
+## 联系方式
+
+项目维护者 - [您的姓名](mailto:your.email@example.com)
+
+项目链接: [https://github.com/yourusername/PhysicsSimulator](https://github.com/yourusername/PhysicsSimulator)
